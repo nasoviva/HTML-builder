@@ -4,7 +4,7 @@ const folderPath = path.join(__dirname, 'secret-folder');
 
 fs.readdir(folderPath, { withFileTypes: true }, (err, files) => {
     if (err)
-        console.log(err);
+        console.error(err);
     else {
         files.forEach(file => {
 
@@ -14,7 +14,7 @@ fs.readdir(folderPath, { withFileTypes: true }, (err, files) => {
 
                 fs.stat(filePath, (err, stats) => {
                     if (err) {
-                        console.log(err);
+                        console.error(err);
                         return;
                     }
                     const name = path.parse(file.name).name;
